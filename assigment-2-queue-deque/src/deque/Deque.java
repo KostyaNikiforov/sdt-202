@@ -6,14 +6,14 @@ import java.util.NoSuchElementException;
 public class Deque<T> implements Iterable<T> {
     private Node<T> left;
     private Node<T> right;
-    private int n;
+    private int size;
 
     public boolean isEmpty() {
-        return n == 0;
+        return size == 0;
     }
 
     public int size() {
-        return n;
+        return size;
     }
 
     public void pushLeft(T item) {
@@ -28,7 +28,7 @@ public class Deque<T> implements Iterable<T> {
         }
 
         left = node;
-        n++;
+        size++;
     }
 
     public void pushRight(T item) {
@@ -43,7 +43,7 @@ public class Deque<T> implements Iterable<T> {
         }
 
         right = node;
-        n++;
+        size++;
     }
 
     public T popLeft() {
@@ -53,7 +53,7 @@ public class Deque<T> implements Iterable<T> {
 
         T item = left.item;
         left = left.next;
-        n--;
+        size--;
 
         if (left == null) {
             right = null;
@@ -70,7 +70,7 @@ public class Deque<T> implements Iterable<T> {
 
         T item = right.item;
         right = right.prev;
-        n--;
+        size--;
 
         if (right == null) {
             left = null;
