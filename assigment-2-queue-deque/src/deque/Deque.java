@@ -3,11 +3,13 @@ package deque;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
+/**/
 public class Deque<T> implements Iterable<T> {
     private Node<T> left;
     private Node<T> right;
     private int size;
 
+    //
     public boolean isEmpty() {
         return size == 0;
     }

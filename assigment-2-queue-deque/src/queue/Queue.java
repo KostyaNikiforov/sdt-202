@@ -72,6 +72,7 @@ public class Queue<T> implements Iterable<T> {
 
             public T next() {
                 if (!hasNext()) throw new NoSuchElementException();
+
                 return items[(first + i++) % items.length];
             }
         };
