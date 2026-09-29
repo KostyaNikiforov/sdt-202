@@ -5,8 +5,8 @@ public class Shell {
             1, 4, 13, 40, 121, 364, 1093, 3280, 9841, 29524, 88573, 265720, 797161
     };
 
-    public static void sort(Comparable[] a) {
-        int n = a.length;
+    public static void sort(Comparable[] array) {
+        int n = array.length;
         int start = 0;
         while (start + 1 < INCREMENTS.length && INCREMENTS[start] < n / 3) {
             start++;
@@ -15,8 +15,12 @@ public class Shell {
         for (int k = start; k >= 0; k--) {
             int h = INCREMENTS[k];
             for (int i = h; i < n; i++) {
-                for (int j = i; j >= h && less(a[j], a[j - h]); j -= h) {
-                    exch(a, j, j - h);
+                for (
+                    int j = i;
+                    j >= h && less(array[j], array[j - h]);
+                    j -= h
+                ) {
+                    exch(array, j, j - h);
                 }
             }
         }
